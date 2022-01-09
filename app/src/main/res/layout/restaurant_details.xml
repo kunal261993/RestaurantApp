@@ -87,6 +87,7 @@
                 android:layout_marginStart="@dimen/twenty"
                 android:layout_marginTop="@dimen/twenty"
                 android:contentDescription="@string/rating"
+                android:isIndicator="true"
                 android:progressTint="@color/golden"
                 android:rating="@{item.restaurantMainItem.rating}"
                 android:secondaryProgressTint="@color/transparent"
