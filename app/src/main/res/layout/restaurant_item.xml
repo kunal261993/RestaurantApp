@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.restaurantapp.domain.RestaurantMainItem" />
+
+        <variable
+            name="clickListener"
+            type="com.example.restaurantapp.adapter.RestaurantsListListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/twenty">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/twohundred"
+            android:onClick="@{() -> clickListener.onClick(item)}">
+
+            <TextView
+                android:id="@+id/restaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                android:theme="@style/restaurantNameStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:restaurantName="@{item}" />
+
+            <TextView
+                android:id="@+id/neighbourhood"
+                android:layout_width="@dimen/zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginTop="@dimen/fifteen"
+                android:layout_marginEnd="@dimen/fifteen"
+                app:layout_constraintEnd_toStartOf="@+id/ratingNumber"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName"
+                app:neighbourhood="@{item}" />
+
+            <TextView
+                android:id="@+id/cuisineType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:layout_marginBottom="@dimen/fifteen"
+                android:theme="@style/cuisineTypeSmallStyle"
+                app:cuisineType="@{item}"
+                app:layout_constraintBottom_toTopOf="@+id/foodItems"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/foodItems"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fifteen"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:layout_marginBottom="@dimen/fifteen"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:theme="@style/foodItemSmallStyle"
+                app:foodItems="@{item}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RatingBar
+                android:id="@+id/restaurantRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:progressTint="@color/golden"
+                android:secondaryProgressTint="@color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:restaurantRating="@{item}" />
+
+            <TextView
+                android:id="@+id/ratingNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/fifteen"
+                android:layout_marginBottom="@dimen/ten"
+                app:layout_constraintBottom_toTopOf="@+id/restaurantRating"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/restaurantRating"
+                app:ratingNumber="@{item}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Restaurant App</string>
+    <string name="restaurant_details">Restaurant Details</string>
+    <string name="rating">Rating</string>
+    <string name="search">Search</string>
+    <string name="no_data_matched">No Data Matched</string>
+</resources>
